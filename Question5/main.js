@@ -28,14 +28,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let result = fs
                     .map((row) => {
                             ex.map((row2) => {
-                                if(row.includes(row2)) {
-                                    row = '';
+                                if(row != null && row.includes(row2)) {
+                                    row = null;
                                 }
                             });
                             return row;            
                         })
-                    .filter((el) => {
-                            return el != '';
+                    .filter((row) => {
+                            return row != null;
                         });
 
 
