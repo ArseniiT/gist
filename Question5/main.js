@@ -14,4 +14,58 @@ document.addEventListener("DOMContentLoaded", function(event) {
         ' /src/assets/apple-touch-icon-57.png ' , 
     ];
 
+    
+    //------- remove spaces ----------
+    let fs = files.map((row) => {
+        return row.replace(/\s/g,'');
+    });
+
+    let ex = exclude.map((row) => {
+        return row.replace(/\s/g,'');
+    });
+
+
+    let result = fs
+                    .map((row) => {
+                            ex.map((row2) => {
+                                if(row.includes(row2)) {
+                                    row = '';
+                                }
+                            });
+                            return row;            
+                        })
+                    .filter((el) => {
+                            return el != '';
+                        });
+
+
+    console.log(result); 
+    
+    // with nested forEach() loop -------------------------------------------------
+    /* 
+    let fs = files;
+    let ex = exclude;
+
+    for (let i = 0; i < fs.length; i++) {
+        (function() {
+            let file = fs[i].replace(/\s/g,'');
+
+            for (let j = 0; j < ex.length; j++) {
+                excl = ex[j].replace(/\s/g,'');
+                let indx = file.toLowerCase().indexOf(excl);
+                if (indx == 0) {
+                    delete fs[i];
+                    return;
+                }        
+            }        
+        })();
+    }
+
+    let filtered = fs.filter((el) => {
+        return el != null;
+      });
+
+    console.log(filtered); */
+    //----------------------------------------------------------------------------------
+
 });
