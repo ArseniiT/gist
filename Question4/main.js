@@ -1,7 +1,7 @@
-function fizzBuzz(start = 1, stop = 100)
-{
+function fizzBuzz(start = 1, stop = 100) {
+
     let result = '';
-    
+
     if (stop < start || start < 0 || stop < 0) {
         throw new Error('Invalid arguments');
     }
@@ -27,5 +27,3 @@ function fizzBuzz(start = 1, stop = 100)
     
     return result;
 }
-
-console.log(fizzBuzz(0,0));
