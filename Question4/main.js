@@ -1,3 +1,7 @@
+/* function fizzBuzz(start = 1, stop = 100) {
+
+        return NaN;
+} */
 function fizzBuzz(start = 1, stop = 100) {
 
     let result = '';
@@ -5,6 +9,14 @@ function fizzBuzz(start = 1, stop = 100) {
     if (stop < start || start < 0 || stop < 0) {
         throw new Error('Invalid arguments');
     }
+
+    // my addition for NaN testing
+    // ---------------------------------------------
+    if ( isNaN(stop) || isNaN(start) ) {
+        return NaN;
+    }
+    // ---------------------------------------------
+    
     
     for (let i = start; i <= stop; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
